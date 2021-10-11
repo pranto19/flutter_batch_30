@@ -5,7 +5,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return const Material(
       child: Center(child: Text("This is login Page")),
     );
   }

@@ -10,9 +10,9 @@ class HomePage extends StatelessWidget {
         shadowColor: Colors.red,
         elevation: 2.0,
         centerTitle: true,
-        title: Text("Tomato Apps"),
+        title: const Text("Tomato Apps"),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
       
       body: Center(
         child: Container(
