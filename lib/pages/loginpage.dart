@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -28,30 +29,40 @@ class LoginPage extends StatelessWidget {
             height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
             child: Column(
               children: [
                 TextFormField(
-              decoration: const InputDecoration(
-                hintText: "Enter Your User ID",
-                labelText: "User ID",
-              ),
-            ),
-            TextFormField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                hintText: "Enter Your Password",
-                labelText: "Password",
-              ),
-            ),
+                  decoration: const InputDecoration(
+                    hintText: "Enter Your User ID",
+                    labelText: "User ID",
+                  ),
+                ),
+                TextFormField(
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    hintText: "Enter Your Password",
+                    labelText: "Password",
+                  ),
+                ),
               ],
             ),
           ),
           const SizedBox(
             height: 20,
           ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, MyRoutes.homeRoute);
+              },
+              child: Text("Login"),
+              style: TextButton.styleFrom(
+                  minimumSize: const Size(100, 40),
+                  backgroundColor: Colors.blue)),
+          const SizedBox(
+            height: 20,          ),
           const Text("Forgot Password?"),
-
         ],
       ),
     );
