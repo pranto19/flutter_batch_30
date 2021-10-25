@@ -65,32 +65,34 @@ class _LoginPageState extends State<LoginPage> {
               height: 20,
             ),
 
-            InkWell(
-              onTap: () async {
-                setState(() {
-                  changeButton = true;
-                });
-                await Future.delayed(Duration(seconds: 1));
-                Navigator.pushNamed(context, MyRoutes.homeRoute);
-              },
-              child: AnimatedContainer(
-                duration: Duration(seconds: 1),
-                width: changeButton ? 50 : 120,
-                height: 50,
-                alignment: Alignment.center,
-                child: changeButton
-                    ? Icon(
-                        Icons.done,
-                        color: Colors.white,
-                      )
-                    : Text(
-                        "Login",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                  // shape: changeButton ? BoxShape.circle : BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+            Material(
+              color: Colors.deepPurple,
+              borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+                splashColor: Colors.red,
+                onTap: () async {
+                  setState(() {
+                    changeButton = true;
+                  });
+                  await Future.delayed(Duration(seconds: 1));
+                  Navigator.pushNamed(context, MyRoutes.homeRoute);
+                },
+                child: AnimatedContainer(
+                  duration: Duration(seconds: 1),
+                  width: changeButton ? 50 : 120,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: changeButton
+                      ? Icon(
+                          Icons.done,
+                          color: Colors.white,
+                        )
+                      : Text(
+                          "Login",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                
                 ),
               ),
             ),
