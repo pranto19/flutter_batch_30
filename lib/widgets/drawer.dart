@@ -17,7 +17,9 @@ class MyDrawer extends StatelessWidget {
               margin: EdgeInsets.zero,
               accountName: Text("Md. Rakib Uddin"),
               accountEmail: Text("r.rony9966@gmail.com"),
-              currentAccountPicture: Image.network(imageurl),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(imageurl),
+              ),
             ),
           ),
         ],
