@@ -9,16 +9,21 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        shadowColor: Colors.red,
-        elevation: 2.0,
         centerTitle: true,
-        title: const Text("Tomato Apps"),
+        title: Column(
+          children: [
+            Text("MeKurt"),
+            Text(
+              "Product List",
+              style: TextStyle(fontSize: 13),
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: Container(
           width: 300,
           height: 200,
-          color: Colors.black,
           child: const Center(
               child: Text(
             "This is my first Application",

@@ -1,7 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_declarations
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
@@ -46,10 +44,26 @@ class MyDrawer extends StatelessWidget {
                         fontSize: 20,
                       )),
                   SizedBox(height: 10),
-                  Text("Email: r.rony9966@gmail.com")
+                  Text("Email: r.rony9966@gmail.com"),
                 ],
               ),
             ),
+          ),
+          ListTile(
+            leading: Icon(CupertinoIcons.home),
+            title: Text("Home", textScaleFactor: 1.2),
+          ),
+          ListTile(
+            leading: Icon(CupertinoIcons.profile_circled),
+            title: Text("Profile", textScaleFactor: 1.2),
+          ),
+          ListTile(
+            leading: Icon(CupertinoIcons.settings),
+            title: Text("Settings", textScaleFactor: 1.2),
+          ),
+          ListTile(
+            leading: Icon(Icons.logout_rounded),
+            title: Text("Logout", textScaleFactor: 1.2),
           ),
         ],
       ),
@@ -57,6 +71,21 @@ class MyDrawer extends StatelessWidget {
   }
 }
 
+
+
+
+
+
+
+
+
+// ListTile(
+//             leading: Icon(CupertinoIcons.home),
+//             title: Text(
+//               "Home",
+//               textScaleFactor: 1.3,
+//             ),
+//           ),
 
 
       // child: ListView(
