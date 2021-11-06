@@ -14,12 +14,11 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Container(
-          child: Image.network(items.image)),
+        leading: Image.network(items.image),
         title: Text(items.name),
         subtitle: Text(items.desc),
         trailing: Text(
-          "\৳${items.price}",
+          "৳${items.price}",
           textScaleFactor: 1.5,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
