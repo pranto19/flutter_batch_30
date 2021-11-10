@@ -13,10 +13,10 @@ class CatalogModel {
   static final items = [
     Item(
         "p001",
-        "Backpack",
-        "Outdoor Small Mini Backpack Daypack Bookbags 10L",
-        "155",
-        "blue",
-        "https://static-01.daraz.com.bd/p/44fac340a6fdceb7925d22b006a3aa22.jpg_340x340q80.jpg_.webp")
+        "Travel Bags",
+        "Travel Bags For Boys & Girls Waterproof Teenage Children School Backpack",
+        "150",
+        "Navy Blue",
+        "https://static-01.daraz.com.bd/p/8bc20fe8cb4fe72de9a25010cf4d7036.jpg_340x340q80.jpg")
   ];
 }
