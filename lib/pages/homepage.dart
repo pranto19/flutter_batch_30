@@ -23,7 +23,9 @@ class _HomePageState extends State<HomePage> {
     var productJson = await rootBundle.loadString("assets/files/product.json");
     final decodedData = jsonDecode(productJson);
     var productData = decodedData["products"];
-    print(productData);
+    CatalogModel.items =
+        List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
+    setState(() {});
   }
 
   @override
@@ -40,10 +42,10 @@ class _HomePageState extends State<HomePage> {
         ),
         drawer: MyDrawer(),
         body: ListView.builder(
-            itemCount: dummyList.length,
+            itemCount: CatalogModel.items.length,
             itemBuilder: (context, index) {
               return ItemWidget(
-                item: dummyList[index],
+                item: CatalogModel.items[index],
               );
             }));
   }
