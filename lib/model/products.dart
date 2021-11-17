@@ -1,15 +1,5 @@
 class CatalogModel {
-  static List<Item> items = [
-    Item(
-        id: "1",
-        name: "Travel Bags",
-        desc:
-            "Travel Bags For Boys & Girls Waterproof Teenage Children School Backpack",
-        price: "150",
-        color: "Navy Blue",
-        image:
-            "https://static-01.daraz.com.bd/p/8bc20fe8cb4fe72de9a25010cf4d7036.jpg_340x340q80.jpg")
-  ];
+  static List<Item> items = [];
 }
 
 class Item {
