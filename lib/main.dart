@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/homepage.dart';
 import 'package:flutter_app/pages/loginpage.dart';
+import 'package:flutter_app/pages/profile.dart';
+import 'package:flutter_app/pages/registration.dart';
 import 'package:flutter_app/pages/routes.dart';
 import 'package:flutter_app/widgets/themes.dart';
 
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.profileRoute: (context) => ProfilePage(),
+        MyRoutes.registrationRoute: (context) => RegistrationPage(),
       },
     );
   }

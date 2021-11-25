@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/routes.dart';
+
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl =
+    const imageUrl =
         "https://media-exp1.licdn.com/dms/image/C5603AQHE4kcpmsYM1g/profile-displayphoto-shrink_200_200/0/1628695083136?e=1637798400&v=beta&t=s80pzsgaBwng1JhjlEoNuE_6rdDLPUAfOfxIcsKrDpc";
 
     return Drawer(
@@ -13,7 +15,7 @@ class MyDrawer extends StatelessWidget {
         children: [
           Container(
             width: 320,
-            height: 180,
+            height: 220,
             decoration: BoxDecoration(
                 image: DecorationImage(
               image: NetworkImage(
@@ -50,10 +52,23 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, MyRoutes.loginRoute);
+            },
             leading: Icon(CupertinoIcons.home),
             title: Text("Home", textScaleFactor: 1.2),
           ),
           ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, '/registration');
+            },
+            leading: Icon(Icons.add_circle_outline),
+            title: Text("Registration", textScaleFactor: 1.2),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
             leading: Icon(CupertinoIcons.profile_circled),
             title: Text("Profile", textScaleFactor: 1.2),
           ),

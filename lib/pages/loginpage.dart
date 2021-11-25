@@ -131,6 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               const Text("Forgot Password?"),
+              const Text("Signup"),
             ],
           ),
         ),
