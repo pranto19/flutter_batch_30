@@ -11,8 +11,9 @@ class ProfilePage extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
-              child: Image.network(
-                  "https://cdn.pixabay.com/photo/2021/06/29/06/14/water-drops-6373296__340.jpg"),
+              child: const Image(
+                  image: NetworkImage(
+                      "https://cdn.pixabay.com/photo/2021/06/29/06/14/water-drops-6373296__340.jpg")),
             ),
             const SizedBox(
               height: 10,

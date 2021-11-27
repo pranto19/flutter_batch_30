@@ -7,9 +7,6 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const imageUrl =
-        "https://media-exp1.licdn.com/dms/image/C5603AQHE4kcpmsYM1g/profile-displayphoto-shrink_200_200/0/1628695083136?e=1637798400&v=beta&t=s80pzsgaBwng1JhjlEoNuE_6rdDLPUAfOfxIcsKrDpc";
-
     return Drawer(
       child: Column(
         children: [
@@ -36,7 +33,8 @@ class MyDrawer extends StatelessWidget {
                       height: 80,
                       width: 80,
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(imageUrl),
+                        backgroundImage: NetworkImage(
+                            "https://epagebd.com/rakib-uddin-rony.jpg"),
                       ),
                     ),
                   ),
