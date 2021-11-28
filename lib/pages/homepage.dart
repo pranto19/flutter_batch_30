@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -17,6 +18,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     loadData();
+  }
+
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  signOut() async {
+    await auth.signOut();
   }
 
   loadData() async {

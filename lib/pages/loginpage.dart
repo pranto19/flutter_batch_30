@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/routes.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -12,18 +14,23 @@ class _LoginPageState extends State<LoginPage> {
 
   final _formKey = GlobalKey<FormState>();
 
-  moveToHome(BuildContext context) async {
-    if (_formKey.currentState!.validate()) {
-      setState(() {
-        changeButton = true;
-      });
-      await Future.delayed(Duration(seconds: 1));
-      await Navigator.pushNamed(context, MyRoutes.homeRoute);
-      setState(() {
-        changeButton = false;
-      });
-    }
-  }
+  final emailEditingController = new TextEditingController();
+  final passwordEditingController = new TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
+
+  // moveToHome(BuildContext context) async {
+  //   if (_formKey.currentState!.validate()) {
+  //     setState(() {
+  //       changeButton = true;
+  //     });
+  //     await Future.delayed(Duration(seconds: 1));
+  //     await Navigator.pushNamed(context, MyRoutes.homeRoute);
+  //     setState(() {
+  //       changeButton = false;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -60,22 +67,28 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
-                        decoration: const InputDecoration(
-                          hintText: "Enter Your User ID",
-                          labelText: "User ID",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "User name is Empty";
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          name = value;
-                          setState(() {});
-                        }),
+                      controller: emailEditingController,
+                      decoration: const InputDecoration(
+                        hintText: "Enter Your Email",
+                        labelText: "Email Address",
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Email Address is Empty";
+                        }
+                        return null;
+                      },
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
+                      onSaved: (value) {
+                        emailEditingController.text = value!;
+                      },
+                    ),
                     TextFormField(
                       obscureText: true,
+                      controller: passwordEditingController,
                       decoration: const InputDecoration(
                         hintText: "Enter Your Password",
                         labelText: "Password",
@@ -85,6 +98,9 @@ class _LoginPageState extends State<LoginPage> {
                           return "Password is Empty";
                         }
                         return null;
+                      },
+                      onSaved: (value) {
+                        passwordEditingController.text = value!;
                       },
                     ),
                   ],
@@ -100,7 +116,10 @@ class _LoginPageState extends State<LoginPage> {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
                   splashColor: Colors.red,
-                  onTap: () => moveToHome(context),
+                  onTap: () {
+                    signIn(emailEditingController.text,
+                        passwordEditingController.text);
+                  },
                   child: AnimatedContainer(
                     duration: Duration(seconds: 1),
                     width: changeButton ? 50 : 120,
@@ -137,5 +156,19 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void signIn(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(msg: "Login Successfull"),
+                Navigator.pushNamed(context, MyRoutes.homeRoute),
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
 }
